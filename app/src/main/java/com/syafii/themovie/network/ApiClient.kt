@@ -9,6 +9,7 @@ package com.syafii.themovie.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.syafii.themovie.util.constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -22,7 +23,7 @@ object ApiClient {
 
     private val retrofit : Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://reqres.in")
+            .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(client)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
